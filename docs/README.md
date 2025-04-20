@@ -24,8 +24,8 @@ that means you must insert your field names as a comma separated string i.e. all
 1 fine thing is, that in the logview all words that you inserted as a #hashtag will appear blue. that took me bit to realise but i find it very beautiful in the log view...
 
 #### development history
-1.0.1. first (internal test) build: input/display/search log.
-0.0.2. first beta (external test) build: settings screen wt import db, customise labels, flush db options.
+1.0.1. first (internal test) build: input/display/search log.   
+0.0.2. first beta (external test) build: settings screen wt import db, customise labels, flush db options.   
 1.0.2. beta (adapted version number): included this about page with help bites.
 
 
