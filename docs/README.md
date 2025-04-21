@@ -13,6 +13,8 @@ as tester please check de temps en temps for available update builds in your Tes
 - sample log datenbank as entree situation
 - display links as clickable elements in log view
 - make content of log view selectable (able to copy from view)
+- filter search after fields
+- export log (csv, sqlite, text/pdf)
 
 #### help bites
 
