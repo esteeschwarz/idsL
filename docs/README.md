@@ -2,6 +2,9 @@
 #### now whats it all about
 it's a simple... eine einfache logbuch app, die eingaben in 9 frei definierbare textfelder erlaubt, diese in einem log view chronologisch abwärts sortiert auflistet und in einem search view die einträge nach regulären ausdrücken filtert. es können einträge aus einer externen sqlite datenbank importiert werden (9 textfelder named field1-9, 1 datetime feld named timestamp, 1 id feld named id) und auch alle vorhergehenden einträge der datenbank gelöscht werden. die app wird standardmäßig in iCloud über alle angemeldeten iOS geräte synchronisiert.
 
+#### pourquoi?
+c'est simplement qc j'aimerais bien d'avoir. donc, il y a.
+
 #### general
 as tester please check de temps en temps for available update builds in your TestFlight app as i am not sending out messages if a new version/build is available.
 
