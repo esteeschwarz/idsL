@@ -6,7 +6,9 @@ it's a simple... eine einfache logbuch app, die eingaben in 9 frei definierbare 
 c'est simplement qc j'aimerais bien d'avoir. donc, il y a.
 
 #### general
-as tester please check de temps en temps for available update builds in your TestFlight app as i am not sending out messages if a new version/build is available.
+as tester please check de temps en temps for available update builds in your TestFlight app as i am not sending out messages if a new version/build is available.   
+und: natürlich ist es müszig, darauf hinzuweisen, dasz kein log view möglich ist, solange keine einträge in der datenbank sind, dh. da noch keine sample datenbank integriert ist seht ihr auch nicht, was so geht und müsst eben fröhlich posten, damit überhaupt was sichtbar wird...
+
 
 #### todo
 - frei definierbare anzahl felder (derzeit 9)
