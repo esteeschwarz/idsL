@@ -8,11 +8,14 @@ library(stringr)
 library(purrr)
 library(tidyr)
 library(htmlwidgets)
-
+library(RSQLite)
 
 # Set random seed for reproducibility
 set.seed(2025)
 
+conn <- dbConnect(SQLite(), dbname = "/Users/guhl/boxHKW/21S/DH/local/SRV/mini/idsdatabase.db")
+result <- dbGetQuery(conn, "SELECT * FROM entries")
+#print(result)
 ## Step 1: Sample JSON schema data creation (if you don't have your own)
 create_sample_json <- function(n_entries = 100) {
   entries <- lapply(1:n_entries, function(i) {
@@ -35,25 +38,43 @@ create_sample_json <- function(n_entries = 100) {
 
 # Create sample JSON data (or load your own)
 json_data <- create_sample_json(200)
-json_data
+#json_data <- result
 json_string <- toJSON(json_data, pretty = TRUE)
-
+#.x<-entries
+#x
 ## Step 2: Process JSON data into a tidy format with field information
 process_json_data_with_fields <- function(json_data) {
   entries <- json_data$entries
-  
+  entries_df <-result
+#  entries <-json_data[1:length(json_data$id),]
   # Convert to dataframe with field information
-  df <- map_df(entries, ~{
-    # Extract all text fields
-    text_fields <- .x[grepl("^text", names(.x))]
+  df<- pmap_dfr(entries_df, function(id, timestamp, ...) {
+    # Extract all text fields (columns starting with "text")
+    text_fields <- list(...)
+    text_fields <- text_fields[grepl("^field", names(text_fields))]
     
+  # df <- map_df(entries, ~{
+  #   # Extract all text fields
+  #   text_fields <- .x[grepl("^text", names(.x))]
+  #   print(text_fields)
+    # field<-"field1"
     # Create a row for each text field
+    # map_df(names(text_fields), function(field) {
+    #   tibble(
+    #     id = .x$id,
+    #     timestamp = .x$timestamp,
+    #     field = field,
+    #     text = text_fields[[field]]
+    # 
+    #   )
+    # })
     map_df(names(text_fields), function(field) {
       tibble(
-        id = .x$id,
-        timestamp = .x$timestamp,
+        id = id,
+        timestamp = timestamp,
         field = field,
         text = text_fields[[field]]
+        
       )
     })
   })
@@ -64,7 +85,7 @@ process_json_data_with_fields <- function(json_data) {
 processed_data_with_fields <- process_json_data_with_fields(json_data)
 
 ## Step 3: Tokenize text and create node/edge dataframes with field information
-create_token_network_with_fields <- function(text_df, min_edge_weight = 2, min_token_count = 3) {
+create_token_network_with_fields <- function(text_df, min_edge_weight = 2, min_token_count = 5) {
   # Tokenize text (remove stopwords and punctuation, lowercase)
   tokens <- text_df %>%
     unnest_tokens(word, text) %>%
