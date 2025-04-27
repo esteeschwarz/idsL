@@ -94,8 +94,13 @@ create_token_network_with_fields <- function(text_df, min_edge_weight = 2, min_t
     mutate(word = str_to_lower(word))
   
   # Create nodes dataframe with two types: tokens and fields
+  fr<-table(tokens)
+  frm<-mean(fr)
+  print(frm)
+  print(max(fr))
   token_nodes <- tokens %>%
     count(word, name = "count") %>%
+    # filter(count >= min_token_count) %>%
     filter(count >= min_token_count) %>%
     arrange(desc(count)) %>%
     mutate(id = paste0("word_", row_number()),
@@ -304,16 +309,20 @@ network<-visNetwork(
     this.setOptions({physics: false});
   }")
 
-saveWidgetFix <- function(plot, file, selfcontained = TRUE) {
+saveWidgetFix <- function(plot, file_out, selfcontained = TRUE) {
   # Fix for saving visNetwork properly
-  tempFile <- file.path(tempdir(), "temp.html")
-  saveWidget(plot, file = tempFile, selfcontained = selfcontained)
-  file.copy(tempFile, file)
-  invisible()
+  tempFile <- file.path(tempdir(), "temp2.html")
+  #tempFile <- tempfile("temp2.html")
+  # tempfile()
+  saveWidget(plot, file=tempfile() , selfcontained = selfcontained)
+  file.copy(tempFile, file_out,overwrite = T)
+  #invisible()
 }
+?saveWidget
 
 # Save the network with a timestamp
-output_file <- paste0("network2", ".html")
+output_file <- paste0(getwd(),"/network3", ".html")
+file_out<-output_file
 saveWidgetFix(network, output_file, selfcontained = TRUE)
 
 message("Network saved as: ", normalizePath(output_file))
