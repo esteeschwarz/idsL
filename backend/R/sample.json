@@ -1,0 +1,29 @@
+{
+
+"1": {
+"field1": "eins",
+"field2": "zwei",
+"field3": "eins",
+"field4": "zwei",
+"field5": "eins",
+"field6": "zwei",
+"field7": "eins",
+"field8": "zwei",
+"field9": "eins",
+"timestamp": "33323"
+},
+
+
+"2":  {
+"field1": "einszwei",
+"field2": "zwei",
+"field3": "eins",
+"field4": "zwei",
+"field5": "eins",
+"field6": "zwei",
+"field7": "eins",
+"field8": "zwei",
+"field9": "eins",
+"timestamp": "4444"
+}
+}
