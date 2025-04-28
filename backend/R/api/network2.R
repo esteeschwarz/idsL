@@ -8,13 +8,29 @@ library(stringr)
 library(purrr)
 library(tidyr)
 library(htmlwidgets)
-library(RSQLite)
+#library(RSQLite)
 
 # Set random seed for reproducibility
 set.seed(2025)
+# plumber.R
+library(plumber)
+# library(tidytext)
+# library(igraph)
+# library(jsonlite)
 
-conn <- dbConnect(SQLite(), dbname = "/Users/guhl/boxHKW/21S/DH/local/SRV/mini/idsdatabase.db")
-result <- dbGetQuery(conn, "SELECT * FROM entries")
+# library(plumber)
+# library(dplyr)
+# library(tidyr)
+# library(stringr)
+# library(purrr)
+
+#* @post /network
+#* @json
+function(req, res) {
+  body <- jsonlite::fromJSON(req$postBody)
+  
+# conn <- dbConnect(SQLite(), dbname = "/Users/guhl/boxHKW/21S/DH/local/SRV/mini/idsdatabase.db")
+# result <- dbGetQuery(conn, "SELECT * FROM entries")
 #print(result)
 ## Step 1: Sample JSON schema data creation (if you don't have your own)
 create_sample_json <- function(n_entries = 100) {
@@ -38,14 +54,14 @@ create_sample_json <- function(n_entries = 100) {
 
 # Create sample JSON data (or load your own)
 json_data <- create_sample_json(200)
-#json_data <- result
+json_data <- body
 json_string <- toJSON(json_data, pretty = TRUE)
 #.x<-entries
 #x
 ## Step 2: Process JSON data into a tidy format with field information
 process_json_data_with_fields <- function(json_data) {
-  entries <- json_data$entries
-  entries_df <-result
+ # entries <- json_data$entries
+  entries_df <-json_data
 #  entries <-json_data[1:length(json_data$id),]
   # Convert to dataframe with field information
   df<- pmap_dfr(entries_df, function(id, timestamp, ...) {
@@ -308,15 +324,19 @@ saveWidgetFix <- function(plot, file, selfcontained = TRUE) {
   # Fix for saving visNetwork properly
   tempFile <- file.path(tempdir(), "temp.html")
   saveWidget(plot, file = tempFile, selfcontained = selfcontained)
-  file.copy(tempFile, file)
+  file.copy(tempFile, file,overwrite = T)
   invisible()
 }
 
 # Save the network with a timestamp
-output_file <- paste0("network2", ".html")
+output_file <- paste0("/var/www/html/cloud/ids/network/index", ".html")
 saveWidgetFix(network, output_file, selfcontained = TRUE)
 
 message("Network saved as: ", normalizePath(output_file))
 network
   
-  
+list(
+  nodes = network_data_with_fields$nodes,
+  edges = network_data_with_fields$edges
+)
+}
