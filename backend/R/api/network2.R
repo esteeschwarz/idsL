@@ -324,6 +324,10 @@ saveWidgetFix <- function(plot, file, selfcontained = TRUE) {
   # Fix for saving visNetwork properly
   tempFile <- file.path(tempdir(), "temp.html")
   saveWidget(plot, file = tempFile, selfcontained = selfcontained)
+  htm<-readLines(tempFile)
+  htm<-gsub("</head>",'<link href="styles.css" rel="stylesheet" />
+</head>',htm)
+  writeLines(htm,tempFile)
   file.copy(tempFile, file,overwrite = T)
   invisible()
 }
