@@ -34,7 +34,8 @@ that means you must insert your field names as a comma separated string i.e. all
 **1.0.1 first (internal test) build:** input/display/search log.   
 **0.0.2 first beta (external test) build:** settings screen wt import db, customise labels, flush db options.   
 **1.0.2 beta (adapted version number):** included this about page with help bites.  
-**1.0.2(4):** included app version display and app update check.   
+**1.0.2(4):** included app version display and app update check.  
+**1.0.2(6):** improved search view to not display entries if search pattern is empty.    
 
 -----
 
