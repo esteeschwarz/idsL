@@ -8,6 +8,8 @@ library(stringr)
 library(purrr)
 library(tidyr)
 library(htmlwidgets)
+library(pandoc)
+pandoc_activate()
 #library(RSQLite)
 
 # Set random seed for reproducibility
@@ -329,7 +331,8 @@ saveWidgetFix <- function(plot, file, selfcontained = TRUE) {
 </head>',htm)
   writeLines(htm,tempFile)
   file.copy(tempFile, file,overwrite = T)
-  invisible()
+file.copy("styles.css", "/var/www/html/cloud/ids/network/styles.css",overwrite=T)
+  #invisible()
 }
 
 # Save the network with a timestamp
