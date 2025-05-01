@@ -1,7 +1,8 @@
 library(httr)
 
 # Define the URL and headers
-url <- "http://127.0.0.1:4173/network"
+url <- "http://0.0.0.0:4173/network"
+url <- "https://ids.dh-index.org/api/network"
 headers <- c("Content-Type" = "application/json")
 
 # Read the JSON data from the file
