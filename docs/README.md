@@ -20,6 +20,7 @@ und: natürlich ist es müszig, darauf hinzuweisen, dasz kein log view möglich 
 - make content of log view selectable (able to copy from view)
 - filter search after fields
 - export log (csv, sqlite, text/pdf)
+- !preserve uncommitted field input during session if change view while input i.e. restore input if change from input to log view and back
 
 #### help bites
 
