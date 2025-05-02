@@ -30,7 +30,7 @@ library(plumber)
 #* @json
 function(req, res) {
   body <- jsonlite::fromJSON(req$postBody)
-source(paste0(Sys.getenv("GIT_TOP"),"idsL/backend/R/api/network-build.R"))
+source(paste0(Sys.getenv("GIT_TOP"),"/idsL/backend/R/api/network-build.R"))
 print("build script sourced...")
 
 list(
