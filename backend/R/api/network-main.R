@@ -32,10 +32,11 @@ function(req, res) {
   body <- jsonlite::fromJSON(req$postBody)
 source(paste0(Sys.getenv("GIT_TOP"),"idsL/backend/R/api/network-build.R"))
 print("build script sourced...")
+net.return<-build.net(body)
 
-list(
-  nodes = network_data_with_fields$nodes,
-  edges = network_data_with_fields$edges
-)
+# list(
+#   nodes = network_data_with_fields$nodes,
+#   edges = network_data_with_fields$edges
+# )
 return(net.return)
 }

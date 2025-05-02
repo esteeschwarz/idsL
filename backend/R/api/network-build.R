@@ -35,7 +35,10 @@ create_sample_json <- function(n_entries = 100) {
   list(entries = entries)
 }
 
+build.net<-function(input){
 # Create sample JSON data (or load your own)
+print("build function called...")
+body<-input
 json_data <- create_sample_json(200)
 json_data <- body
 json_string <- toJSON(json_data, pretty = TRUE)
@@ -329,3 +332,4 @@ net.return<-list(
   edges = network_data_with_fields$edges
 )
 
+}
