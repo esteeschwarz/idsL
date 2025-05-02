@@ -31,7 +31,7 @@ library(plumber)
 function(req, res) {
   body <- jsonlite::fromJSON(req$postBody)
   
-# conn <- dbConnect(SQLite(), dbname = "/Users/guhl/boxHKW/21S/DH/local/SRV/mini/idsdatabase.db")
+# conn <- dbConnect(SQLite(), dbname = paste0(Sys.getenv("HKW_TOP"),"/SRV/mini/idsdatabase.db"))
 # result <- dbGetQuery(conn, "SELECT * FROM entries")
 #print(result)
 ## Step 1: Sample JSON schema data creation (if you don't have your own)
@@ -331,12 +331,12 @@ saveWidgetFix <- function(plot, file, selfcontained = TRUE) {
 </head>',htm)
   writeLines(htm,tempFile)
   file.copy(tempFile, file,overwrite = T)
-file.copy("styles.css", "/var/www/html/cloud/ids/network/styles.css",overwrite=T)
+file.copy("styles.css", paste0(Sys.getenv("WWW_TOP"),"/cloud/ids/network/styles.css"),overwrite=T)
   #invisible()
 }
 
 # Save the network with a timestamp
-output_file <- paste0("/var/www/html/cloud/ids/network/index", ".html")
+output_file <- paste0(Sys.getenv("WWW_TOP"),"/cloud/ids/network/index", ".html")
 saveWidgetFix(network, output_file, selfcontained = TRUE)
 
 message("Network saved as: ", normalizePath(output_file))
