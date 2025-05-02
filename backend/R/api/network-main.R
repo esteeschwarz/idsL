@@ -40,3 +40,20 @@ net.return<-build.net(body)
 # )
 return(net.return)
 }
+#* @get /status
+#* @serializer unboxedJSON
+function() {
+  list(
+    status = "api running",
+    time = Sys.time()
+  )
+}
+
+#* @get /ids-version
+#* @json
+function() {
+  source(paste0(Sys.getenv("GIT_TOP"),"/idsL/backend/R/api/getversion.R"))
+  latestversion<-getversion()
+  
+}
+

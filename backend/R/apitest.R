@@ -12,10 +12,12 @@ json_data <- readLines(paste0(wd,"/idsL/backend/R/sample_data_100.json"), warn =
 response <- POST(url, add_headers(.headers = headers), body = json_data, encode = "json")
 
 # Print the response
-if (http_type(response) == "application/json") {
-  print(content(response, as = "parsed", type = "application/json"))
-} else {
-  print(content(response, as = "text"))
-}
+# if (http_type(response) == "application/json") {
+#   print(head(content(response, as = "parsed", type = "application/json")))
+# } else {
+#   print(head(content(response, as = "text")))
+# }
 df<-content(response, as = "parsed", type = "application/json")
 df<-fromJSON(content(response,"text"))
+print(head(df[[1]]))
+print(head(df[[2]]))
