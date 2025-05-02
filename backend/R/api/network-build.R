@@ -321,7 +321,8 @@ output_file <- paste0(Sys.getenv("WWW_TOP"),"/cloud/ids/network/index", ".html")
 saveWidgetFix(network, output_file, selfcontained = TRUE)
 
 message("Network saved as: ", normalizePath(output_file))
-network
+cat("Network saved as: ", normalizePath(output_file),"\n")
+#network
   
 net.return<-list(
   nodes = network_data_with_fields$nodes,
