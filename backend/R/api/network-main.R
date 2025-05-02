@@ -1,0 +1,40 @@
+# Load required libraries
+# library(jsonlite)
+# library(dplyr)
+# library(tidytext)
+# library(igraph)
+# library(ggplot2)
+# library(stringr)
+# library(purrr)
+# library(tidyr)
+# library(htmlwidgets)
+# library(pandoc)
+# pandoc_activate()
+#library(RSQLite)
+
+# Set random seed for reproducibility
+set.seed(2025)
+# plumber.R
+library(plumber)
+# library(tidytext)
+# library(igraph)
+# library(jsonlite)
+
+# library(plumber)
+# library(dplyr)
+# library(tidyr)
+# library(stringr)
+# library(purrr)
+
+#* @post /network
+#* @json
+function(req, res) {
+  body <- jsonlite::fromJSON(req$postBody)
+source("network-build.R")  
+
+list(
+  nodes = network_data_with_fields$nodes,
+  edges = network_data_with_fields$edges
+)
+return(net.return)
+}
