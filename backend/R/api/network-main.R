@@ -50,10 +50,11 @@ function() {
 }
 
 #* @get /ids-version
-#* @json
+#* @serializer unboxedJSON
 function() {
   source(paste0(Sys.getenv("GIT_TOP"),"/idsL/backend/R/api/getversion.R"))
   latestversion<-getversion()
+  latestversion
   
 }
 
