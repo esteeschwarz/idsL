@@ -11,16 +11,16 @@ und: natürlich ist es müszig, darauf hinzuweisen, dasz kein log view möglich 
 
 
 #### todo
-- frei definierbare anzahl felder (derzeit 9)
-- erstellung weiterer logbücher in der datenbank
-- field label anzeige im log view
-- cluster abbildung der suchergebnisse
-- sample log datenbank as entree situation
-- display links as clickable elements in log view
-- make content of log view selectable (able to copy from view)
-- filter search after fields
-- export log (csv, sqlite, text/pdf)
-- !preserve uncommitted field input during session if change view while input i.e. restore input if change from input to log view and back
+- [ ] frei definierbare anzahl felder (derzeit 9)
+- [ ] erstellung weiterer logbücher in der datenbank
+- [ ] field label anzeige im log view
+- [ ] cluster abbildung der suchergebnisse
+- [ ] sample log datenbank as entree situation
+- [ ] display links as clickable elements in log view
+- [ ] make content of log view selectable (able to copy from view)
+- [ ] filter search after fields
+- [ ] export log (csv, sqlite, text/pdf)
+- [x] !preserve uncommitted field input during session if change view while input i.e. restore input if change from input to log view and back
 
 #### help bites
 
@@ -38,7 +38,7 @@ that means you must insert your field names as a comma separated string i.e. all
 **1.0.2(4):** included app version display and app update check.  
 **1.0.2(6):** improved search view to not display entries if search pattern is empty.   
 **1.0.2(14):** added little helper to *edit field label view*. improved input view: now you can while editing input also switch to another view without losing already input text.   
-
+**1.0.2(15):** improved update check; checks versus version and build number and gives notice when update available.
 -----
 
 
