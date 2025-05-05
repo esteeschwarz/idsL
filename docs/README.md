@@ -38,7 +38,7 @@ that means you must insert your field names as a comma separated string i.e. all
 **1.0.2(4):** included app version display and app update check.  
 **1.0.2(6):** improved search view to not display entries if search pattern is empty.   
 **1.0.2(14):** added little helper to *edit field label view*. improved input view: now you can while editing input also switch to another view without losing already input text.   
-**1.0.2(15):** improved update check; checks versus version and build number and gives notice when update available.
+**1.0.2(15):** improved update check; checks versus version and build number and gives notice when update available.   
 
 -----
 
