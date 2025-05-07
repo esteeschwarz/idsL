@@ -29,7 +29,7 @@ that means you must insert your field names as a comma separated string i.e. all
 2. in the search view you will be querying your log with **regular expressions**. thats a common but powerful method of searching text. you can't use just a comma/+ if you want to query for multiple expressions (words) like you would with ggooggle. instead you would to find log entries containing the words **temperature** or **wind** use a query like `temperature|wind` where the dash functions as an OR operator. if you want to find entries containing both expressions it's more complicated, but with regex nearly all is possible. see [here e.g.](https://regexr.com) for a short regex reference & cheatsheet on how to use it for queries. (i assume this is definitely an issue so i will break up the regex search into readymade queries in a future build.)
 
 #### features
-1 fine thing is, that in the logview all words that you inserted as a #hashtag will appear blue. that took me bit to realise but i find it very beautiful in the log view...
+1 fine thing is, that in the logview all words that you inserted as a #hashtag will appear blue. that took me (or rather deepseek) bit to realise but i find it very beautiful in the log view...
 
 #### development history
 **1.0.1 first (internal test) build:** input/display/search log.   
