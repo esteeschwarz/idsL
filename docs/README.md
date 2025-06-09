@@ -5,11 +5,6 @@ it's a simple... eine einfache logbuch app, die eingaben in 9 frei definierbare 
 #### pourquoi?
 c'est simplement qc j'aimerais bien d'avoir. donc, il y a.
 
-#### general
-as tester please check de temps en temps for available update builds in your TestFlight app (under builds > version > build) as i am not sending out messages if a new version/build is available. NT: there is now an update check view from within the app under settings > update check which should check your installed versions against a github stored version table and encourages you to open TestFlight if a new version/build is available...   
-und: natürlich ist es müszig, darauf hinzuweisen, dasz kein log view möglich ist, solange keine einträge in der datenbank sind, dh. da noch keine sample datenbank integriert ist seht ihr auch nicht, was so geht und müsst eben fröhlich posten, damit überhaupt was sichtbar wird...
-
-
 #### todo
 - [ ] frei definierbare anzahl felder (derzeit 9)
 - [ ] erstellung weiterer logbücher in der datenbank
@@ -19,7 +14,7 @@ und: natürlich ist es müszig, darauf hinzuweisen, dasz kein log view möglich 
 - [ ] display links as clickable elements in log view
 - [ ] make content of log view selectable (able to copy from view)
 - [ ] filter search after fields
-- [ ] export log (csv, sqlite, text/pdf)
+- [x] export log (csv, sqlite, text/pdf)
 - [x] !preserve uncommitted field input during session if change view while input i.e. restore input if change from input to log view and back
 
 #### help bites
@@ -39,6 +34,11 @@ that means you must insert your field names as a comma separated string i.e. all
 **1.0.2(6):** improved search view to not display entries if search pattern is empty.   
 **1.0.2(14):** added little helper to *edit field label view*. improved input view: now you can while editing input also switch to another view without losing already input text.   
 **1.0.2(15):** improved update check; checks versus version and build number and gives notice when update available.   
+**1.0.2(17):** export DB feature added. saves .sqlite/.csv with timestamp to app documents dir on device.
+
+#### test notice
+as tester please check de temps en temps for available update builds in your TestFlight app (under builds > version > build) as i am not sending out messages if a new version/build is available. NT: there is now an update check view from within the app under settings > update check which should check your installed versions against a github stored version table and encourages you to open TestFlight if a new version/build is available...   
+und: natürlich ist es müszig, darauf hinzuweisen, dasz kein log view möglich ist, solange keine einträge in der datenbank sind, dh. da noch keine sample datenbank integriert ist seht ihr auch nicht, was so geht und müsst eben fröhlich posten, damit überhaupt was sichtbar wird...
 
 -----
 
